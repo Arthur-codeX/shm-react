@@ -8,9 +8,15 @@ import PrimitiveData from "./Props/PrimitiveData";
 import MiniProject from "./MiniProject";
 
 import "./css.css";
-
+// import ".mycss/main.css";
+import Buttons from "./Events/Btns"
+import MyForm from "./Events/Form";
+import SimpleState from "./Hooks/State/SimpleState";  
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MiniProject />
+    <Buttons />
+    <MyForm />
+    <SimpleState />
   </StrictMode>
 );
