@@ -1,6 +1,11 @@
 .border-container {
-  border: 2px solid black;
-  margin: 2px;
+  /* border: 2px solid black;
+  margin: 2px; */
+}
+
+.component-c-container {
+  display: flex;
+  padding: 10px;
 }
 .component-c-container{
   display: flex;
