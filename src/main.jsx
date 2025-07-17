@@ -18,10 +18,12 @@ import SimpleState from "./Hooks/State/SimpleState";
 import SimpleState2 from "./Hooks/State/SimpleState2";
 
 import FormState from "./Hooks/State/FormState";
+import SimpleEffect from "./Hooks/Effect/SimpleEffect";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <FormState />
+    <SimpleEffect />
   </StrictMode>
 );
 
