@@ -3,6 +3,8 @@ import { useState } from "react";
 function FormState() {
   const [radius, setRadius] = useState(1);
 
+  console.log("Form State Render");
+
   const areaCircle = (radius) => {
     return radius * radius * 3.142;
   };
@@ -32,8 +34,18 @@ function FormState() {
   );
 }
 
+function TestComponent() {
+  console.log("Test Compnent Render");
+  return (
+    <div>
+      <h1>Test Component</h1>
+    </div>
+  );
+}
+
 function Circle(props) {
   const { radius } = props;
+  console.log("Circle Component Render");
 
   const getSize = (radius) => {
     let r = parseInt(radius);
@@ -56,21 +68,24 @@ function Circle(props) {
   };
 
   return (
-    <div
-      style={{
-        width: getSize(radius),
-        height: getSize(radius),
-        borderRadius: "2000px",
-        backgroundColor: "rgba(0,0,0,0.1)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <span style={{ fontSize: getTextSize(radius) }}>
-        r={parseInt(radius)}
-      </span>
-    </div>
+    <>
+      <div
+        style={{
+          width: getSize(radius),
+          height: getSize(radius),
+          borderRadius: "2000px",
+          backgroundColor: "rgba(0,0,0,0.1)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ fontSize: getTextSize(radius) }}>
+          r={parseInt(radius)}
+        </span>
+      </div>
+      <TestComponent />
+    </>
   );
 }
 
