@@ -13,7 +13,34 @@ function SimpleEffect() {
   const [n, setN] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
-  const [chickens, setChickens] = useState([1, 2, 3, 4, 5]);
+  const [chickens, setChickens] = useState([]);
+
+  const [d, setD] = useState("");
+
+  useEffect(() => {
+    let date = new Date();
+    // bug memmory leak
+    //
+    setTimeout(() => {
+      setD(date.toISOString());
+    }, 100);
+  }, []);
+
+  // OK
+  useEffect(() => {
+    console.log("Useffec has run");
+    // setN(somehting)
+    // 1 chicken is equal to 5
+    let k = n / 5; // n10/5 > 2
+    k = Math.floor(k); // 2,4
+
+    let chickenArr = [];
+    for (let i = 0; i < k; i++) {
+      chickenArr.push(i + 1);
+    }
+    console.log(chickenArr);
+    setChickens(chickenArr);
+  }, [n]);
 
   const getStatus = () => {
     if (showForm === true) {
@@ -40,6 +67,7 @@ function SimpleEffect() {
   return (
     <div>
       <h1>Simple Effect</h1>
+      <div>TS:{d}</div>
       <div>
         <button
           onClick={() => {
