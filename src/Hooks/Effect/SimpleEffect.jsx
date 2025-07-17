@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import chickenimg from "./../../assets/chicken.jpg";
+
 function SimpleEffect() {
   // useEffect(function,[dependency])
   // useEffect(function)-> without dependency
@@ -10,6 +12,8 @@ function SimpleEffect() {
 
   const [n, setN] = useState(0);
   const [showForm, setShowForm] = useState(false);
+
+  const [chickens, setChickens] = useState([1, 2, 3, 4, 5]);
 
   const getStatus = () => {
     if (showForm === true) {
@@ -53,6 +57,22 @@ function SimpleEffect() {
           +
         </button>
       </div>
+
+      <div>
+        {chickens.map((chicken, index) => {
+          return (
+            <img
+              src={chickenimg}
+              key={index}
+              style={{
+                width: "50px",
+                margin: "10px",
+              }}
+            />
+          );
+        })}
+      </div>
+
       <button onClick={() => setShowForm(!showForm)}>{getStatus()}</button>
       <MyForm showForm={showForm} />
     </div>
@@ -76,6 +96,24 @@ function MyForm(props) {
 function UnMountComponent() {
   let k = 1;
 
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      console.log("Mouse position");
+      setPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   useEffect(() => {
     console.log("Show Form has been Mounted");
 
@@ -95,6 +133,10 @@ function UnMountComponent() {
   return (
     <div>
       <h1>Unmount Component</h1>
+      <div>
+        <p>X Axios {position.x}</p>
+        <p>Y Axios {position.y}</p>
+      </div>
     </div>
   );
 }
