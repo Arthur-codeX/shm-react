@@ -1,9 +1,34 @@
-function Navigation() {
+function Navigation(props) {
+  const { setPage, page } = props;
+
+  const getclass = (tocheck) => {
+    if (page === tocheck) {
+      return "btn-primary";
+    }
+
+    return "btn-secondary";
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "100px" }}>
-      <button className="btn btn-primary m-1">Home</button>
-      <button className="btn btn-primary m-1">About</button>
-      <button className="btn btn-primary m-1">Contact</button>
+      <button
+        onClick={() => setPage("home")}
+        className={`btn ${getclass("home")} m-1`}
+      >
+        Home
+      </button>
+      <button
+        onClick={() => setPage("about")}
+        className={`btn ${getclass("about")} m-1`}
+      >
+        About
+      </button>
+      <button
+        onClick={() => setPage("contact")}
+        className={`btn ${getclass("contact")} m-1`}
+      >
+        Contact
+      </button>
     </div>
   );
 }
