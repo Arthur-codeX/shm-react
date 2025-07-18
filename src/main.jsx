@@ -23,6 +23,8 @@ import SimpleEffect from "./Hooks/Effect/SimpleEffect";
 
 import Navigation from "./Routing/ManualRoutes/Navigation";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Navigation />
