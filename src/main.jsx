@@ -21,8 +21,10 @@ import FormState from "./Hooks/State/FormState";
 
 import SimpleEffect from "./Hooks/Effect/SimpleEffect";
 
+import Navigation from "./Routing/ManualRoutes/Navigation";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <SimpleEffect />
+    <Navigation />
   </StrictMode>
 );
