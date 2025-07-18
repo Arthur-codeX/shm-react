@@ -25,8 +25,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import ManualRoute from "./Routing/ManualRoutes";
 
+import Dashboard from "./Routing/ReactRouter/DashBoard";
+
+import Login from "./Routing/ReactRouter/Login";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ManualRoute />
+    {/* <Login /> */}
+    <Dashboard />
   </StrictMode>
 );
