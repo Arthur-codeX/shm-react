@@ -23,17 +23,10 @@ import SimpleEffect from "./Hooks/Effect/SimpleEffect";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navigation from "./Routing/ManualRoutes/Navigation";
-
-import Home from "./Routing/ManualRoutes/Home";
-import About from "./Routing/ManualRoutes/About";
-import Contact from "./Routing/ManualRoutes/Contact";
+import ManualRoute from "./Routing/ManualRoutes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Navigation />
-    <Home />
-    <About />
-    <Contact />
+    <ManualRoute />
   </StrictMode>
 );
