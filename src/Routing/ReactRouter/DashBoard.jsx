@@ -4,13 +4,15 @@ import All from "./All";
 
 import NavComponent from "./NavComponet";
 
+import { Outlet } from "react-router";
+
 function Dashboard() {
   return (
     <div>
       <h1>Dashboard Page</h1>
       <NavComponent />
-      <Search />
-      <All />
+      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 }
