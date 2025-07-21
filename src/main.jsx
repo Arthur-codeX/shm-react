@@ -28,10 +28,10 @@ import ManualRoute from "./Routing/ManualRoutes";
 import Dashboard from "./Routing/ReactRouter/DashBoard";
 
 import Login from "./Routing/ReactRouter/Login";
+import ReactRouter from "./Routing/ReactRouter";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <Login /> */}
-    <Dashboard />
+    <ReactRouter />
   </StrictMode>
 );
